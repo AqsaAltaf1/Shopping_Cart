@@ -1,0 +1,29 @@
+<div class='container-login signup mb-5'>
+  <h3 class='text-center sign p-2'>Forgot your password?</h3>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    <div class='form-body'>
+      <div class="field mt-2">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control' %>
+      </div>
+
+      <div class="actions mt-4 btn1">
+        <%= f.submit "Send me reset password instructions",class: 'form-control btn1-body' %>
+      </div>  
+
+      <div class='row links-file text-center mt-3 offset-1'>
+        <div class='col-2 link1'>
+          <%= link_to 'Log in', new_user_session_path %>
+        </div>
+        <div class='col-9 link1 '>
+          <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+            <%= link_to "Didn't recieve confirmation instructions?", new_confirmation_path(resource_name) %><br />
+          <% end %>
+        </div>
+    </div>
+  <% end %>
+
+  <%#= render "users/shared/links" %>
+</div>
