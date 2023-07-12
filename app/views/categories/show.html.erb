@@ -1,0 +1,24 @@
+<h1 class='text-center p-2'><%= @category.Name %></h1>
+<%= link_to 'Add Products', new_product_path%>
+<h3>All Products</h3>
+<table class="table table-striped table-hover">
+  <thead class='table-head'>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <% @category.products.each do |product| %>
+    <tbody>
+      <tr>
+        <th scope="row"> <%= product.id %></th>
+        <td><%= product.Name %></td>
+        <td><%= product.Description %></td>
+        <td><%= product.Price%></td>
+      </tr>
+    </tbody>
+  <% end %>
+</table>
