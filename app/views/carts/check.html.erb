@@ -1,1 +1,40 @@
-check out data
+<div class='bg-light'>
+  <div class='address'>
+    <p>Delivery to: <%= current_user.First_Name %> <%= current_user.Last_Name %></p>
+    <p>Home: <%= current_user.Address %></p>
+    <p>Email to: <%= current_user.email %> </p>
+  </div>
+  <div class='checkout-pro'>
+    <div class='item-checkout'>
+      <% @cart.items.order(:id).each do |item|%> 
+        <% product=item.product %>
+        <div class='row item-body'>
+          <div class='col col-img-check'>
+            <% if product.files.attached? %>
+              <div id="product<%= item.id %>" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class=”carousel-inner”>
+                    <%product.files.each_with_index do |file,i|%>
+                      <div class="carousel-item <%= "active " if i==0 %>">
+                        <%= image_tag(file , class:'checkout-img') %>
+                      </div>
+                    <%end%>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <div class='col chec-detail'>
+            <div>
+              <ul class='list1'>
+                <li><%= product.Description%></li>
+                <li>Quantity:<%= item.quantity %><span class='bill'><b>RS.<%=item.quantity*product.Price%></b></span></li>
+              </ul>     
+            </div>
+          </div>
+        </div>
+        <hr class='horizontal'>
+      <% end %>
+    </div>
+  </div>
+</div>

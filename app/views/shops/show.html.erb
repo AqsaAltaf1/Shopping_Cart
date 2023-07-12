@@ -1,9 +1,3 @@
 <h1 class='text-center p-2'><%= @shop.Name %></h1>
 <%= link_to 'Add Products', new_product_path,class:'btn btn-pro' %>
-<div class='shop'>
-  <%= link_to "Destroy shop", user_shop_path(@user), data: {
-    turbo_method: :delete,
-    turbo_confirm: "Are you sure?"
-  } %> 
-</div>
 
