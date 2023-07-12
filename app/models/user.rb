@@ -8,7 +8,7 @@ class User < ApplicationRecord
   enum role: {
     buyer: 0,
     seller: 1,
-    SuperAdmin: 2
+    superadmin: 2
   }
   enum status: {
     inactive: 0,
