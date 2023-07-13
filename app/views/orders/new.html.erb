@@ -1,4 +1,23 @@
 <div class='bg-light'>
+  <%= form_with model: [@cart.orders.build] do |f| %>
+    <div class='summery'>
+      <h3>Order Summary</h3>
+      <p>Total Items:<%=cart_count(@cart) %></p>
+      <div class='mt-2'>
+        <%= f.label :total_bill%>
+        <%= f.number_field :total_bill,value: total_price,placeholder: :'Your bill',class:'form-control' %>
+      </div>
+      <div class='mt-2'>
+        <%= f.label :shipping_address%>
+        <%= f.text_field :shipping_address,placeholder: 'shipping Address',class:'form-control' %>
+      </div>
+      <div class='mt-2'>
+        <%= f.label :payment_method%>
+        <%= f.select :payment_method, [ 'cash on delivery', 'online payment'], {}, class:"form-select" %>
+      </div>
+      <%= f.submit "Place Order", class:'btn btn-order mt-3' %>
+    </div> 
+  <% end %>
   <div class='address'>
     <p>Delivery to: <%= current_user.First_Name %> <%= current_user.Last_Name %></p>
     <p>Home: <%= current_user.Address %></p>
@@ -33,7 +52,7 @@
             </div>
           </div>
         </div>
-        <hr class='horizontal'>
+        <hr>
       <% end %>
     </div>
   </div>

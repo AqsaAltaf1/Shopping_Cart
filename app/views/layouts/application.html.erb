@@ -20,7 +20,10 @@
         <% if user_signed_in? %>
           <div>
             <div>
-              <%= link_to 'log out', destroy_user_session_path,data: { turbo_method: :delete}  %>
+              <% if current_user.cart.orders.exists? %>
+                <%= link_to 'Order history', order_path(current_user.cart),class: 'link-order' %>
+              <% end %>
+              <%= link_to 'log out', destroy_user_session_path,data: { turbo_method: :delete} %>
               <%= link_to 'my profile', user_path(current_user),class: 'link-in' %>
             </div>
           </div>   

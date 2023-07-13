@@ -1,4 +1,4 @@
-class CreateOrders < ActiveRecord::Migration[7.0]
+class CreateItem < ActiveRecord::Migration[7.0]
   def change
     create_table :items do |t|
       t.belongs_to :product, null: false, foreign_key: true

@@ -1,0 +1,11 @@
+<div class='order-body'>
+  <% @cart.orders.each do |order|%>
+    <div class='order'>
+      <p><b>Order ID:</b><%=order.id %></p>
+      <p><b>Order Date:</b><%=order.created_at %></p>
+      <p><b>Order Total bill:</b><%=order.total_bill %></p>
+      <p><b>Order Shipping Address:</b><%=order.shipping_address %></p>
+      <p><b>Order Payment Method:</b><%=order.payment_method %></p>
+    </div>
+  <% end %>
+</div>
