@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_one :cart,dependent: :destroy
   has_one :shop, dependent: :destroy
-  validates :First_Name, :Last_Name, :Phone_number, presence: true
+  validates :first_name, :last_name, :phone_number, presence: true
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable,:confirmable
          

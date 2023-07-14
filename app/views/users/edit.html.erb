@@ -5,35 +5,40 @@
       <div class="field row mt-3">
         <div class='col'>
           <%= f.label :First_Name %><br />
-          <%= f.text_field :First_Name, autofocus: true, autocomplete: "First_Name", readonly: true,class: 'form-control' %>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "First_Name", readonly: true,class: 'form-control' %>
         </div>
         <div class='col'>
           <%= f.label :Last_Name %><br />
-          <%= f.text_field :Last_Name, autofocus: true, autocomplete: "Last_Name", readonly: true,class: 'form-control' %>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "Last_Name", readonly: true,class: 'form-control' %>
         </div> 
       </div>
 
       <div class="field row mt-2">
         <div class='col'>
-          <%= f.label :Country %><br />
-          <%= f.text_field :Country, autofocus: true, autocomplete: "Country", readonly: true ,class: 'form-control' %>
+          <%= f.label :Country %><br/>
+          <%= f.text_field :country, autofocus: true, autocomplete: "Country", readonly: true ,class: 'form-control' %>
         </div>
         <div class='col'>
           <%= f.label :City %><br />
-          <%= f.text_field :City, autofocus: true, autocomplete: "City", readonly: true ,class: 'form-control' %>
+          <%= f.text_field :city, autofocus: true, autocomplete: "City", readonly: true ,class: 'form-control' %>
         </div> 
       </div>
       
       <div class='field row mt-2'>
         <div class='col'>
           <%= f.label :Phone_number %><br />
-          <%= f.number_field :Phone_number, autofocus: true, autocomplete: "Phone_number", readonly: true ,class: 'form-control' %>
+          <%= f.number_field :phone_number, autofocus: true, autocomplete: "Phone_number", readonly: true ,class: 'form-control' %>
         </div>
-        <div class='col'>
-          <%= f.label :email %><br />
-          <%= f.text_field :email, autofocus: true, autocomplete: "Phone_number", readonly: true,class: 'form-control' %>
+        <div class='field col'>
+          <%= f.label :Address %><br />
+          <%= f.text_field :address, autofocus: true, autocomplete: "Address",readonly: true,class: 'form-control' %>
         </div>
       </div>  
+
+      <div class="field mt-2">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email",readonly: true,class: 'form-control' %>
+      </div>
 
       <div class='field row mt-2'>
         <div class='col'>

@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   patch 'items/update_item/:id' => 'items#update_item', :as => 'update_item' 
   post 'carts/add/:product_id' => 'carts#add', :as => 'add'
   get 'carts/:cart_id/check' => 'carts#check', :as => 'check'
+  get '/search', to: "products#search"
 end

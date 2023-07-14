@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_12_101614) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "Name"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,9 +76,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_12_101614) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "Name"
-    t.text "Description"
-    t.bigint "Price"
+    t.string "name"
+    t.text "description"
+    t.bigint "price"
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -86,7 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_12_101614) do
   end
 
   create_table "shops", force: :cascade do |t|
-    t.string "Name"
+    t.string "name"
     t.integer "approval", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -111,13 +111,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_12_101614) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "First_Name"
-    t.string "Last_Name"
-    t.string "City"
-    t.string "Country"
-    t.bigint "Phone_number"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "city"
+    t.string "country"
+    t.bigint "phone_number"
     t.integer "role", default: 0
-    t.text "Address"
+    t.text "address"
     t.integer "status", default: 0
     t.datetime "locked_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

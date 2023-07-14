@@ -1,6 +1,6 @@
 class Shop < ApplicationRecord
   belongs_to :user
-  validates :Name, presence: true
+  validates :name, presence: true
 
   enum approval: {
     Approved: 1,

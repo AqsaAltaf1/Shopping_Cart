@@ -16,7 +16,7 @@
         <tbody>
           <tr>
             <th scope="row"><%= shop.id %></th>
-            <td><%= shop.Name %></td>
+            <td><%= shop.name %></td>
             <td><%= shop.approval %></td>
             <td><%= link_to 'edit', edit_user_shop_path(shop.user,shop)%> <%= link_to 'show', user_shop_path(shop.user,shop) %>  
             <%= link_to 'Delete', user_shop_path(shop.user,shop), data: {

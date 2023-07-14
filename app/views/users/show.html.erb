@@ -1,5 +1,5 @@
 <div class='container mb-4'>
-  <h3 class='text-center p-2'>Welcome <%= current_user.First_Name %> <%= current_user.Last_Name %></h3>
+  <h3 class='text-center p-2'>Welcome <%= current_user.first_name %> <%= current_user.last_name %></h3>
   <div class='view'>
     <div>
       <ul class='list1'>
@@ -14,12 +14,12 @@
     </div>
     <div>
       <ul class='list2'>
-        <li><%= @user.First_Name %></li><hr>
-        <li><%= @user.Last_Name %></li><hr>
+        <li><%= @user.first_name %></li><hr>
+        <li><%= @user.last_name %></li><hr>
         <li><%= @user.email %></li><hr>
-        <li><%= @user.Country %></li><hr>
-        <li><%= @user.City %></li><hr>
-        <li><%= @user.Phone_number %></li><hr>
+        <li><%= @user.country %></li><hr>
+        <li><%= @user.city %></li><hr>
+        <li><%= @user.phone_number %></li><hr>
       <ul>
       <%= signed_in_helper %>
     </div>

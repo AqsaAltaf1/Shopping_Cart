@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: %i[index new create delete_file]
+  before_action :set_product, except: %i[index new create delete_file search]
   
   def index
     @products = Product.order(:id)
@@ -43,10 +43,19 @@ class ProductsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to root_path and return
+    else
+      @parameter = params[:search]
+      @results = Product.all.where(Name: "#{@parameter}")
+    end
+  end
+
   private
 
   def product_params
-    params.require(:product).permit(:Name, :Description, :Price,:category_id, files: [])
+    params.require(:product).permit(:name, :description, :price,:category_id, files: [])
   end
 
   def set_product

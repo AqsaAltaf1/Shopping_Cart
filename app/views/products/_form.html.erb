@@ -1,20 +1,20 @@
 <%= form_with model: [@product] do |f| %>
   <div class='form-body'>
     <div class="field mt-3">
-      <%= f.label :Name %>
-      <%= f.text_field :Name ,autofocus: true, autocomplete: "Name",class:'form-control' %>
+      <%= f.label :name %>
+      <%= f.text_field :name ,autofocus: true, autocomplete: "Name",class:'form-control' %>
     </div>
     <div class="field mt-3">
-      <%= f.label :Description %>
-      <%= f.text_area :Description  ,autofocus: true, autocomplete: "Description",class:'form-control' %>
+      <%= f.label :description %>
+      <%= f.text_area :description  ,autofocus: true, autocomplete: "Description",class:'form-control' %>
     </div>
     <div class="field mt-3">
-      <%= f.label :Price %>
-      <%= f.number_field :Price ,autofocus: true, autocomplete: "price",class:'form-control' %>
+      <%= f.label :price %>
+      <%= f.number_field :price ,autofocus: true, autocomplete: "price",class:'form-control' %>
     </div>
     <div class="field mt-3">
-    <%= f.label :Category %>
-    <%= f.select :category_id, Category.all.collect { |p| [ p.Name, p.id ] }, include_blank: true %>
+      <%= f.label :category %>
+      <%= f.select :category_id, Category.all.collect { |p| [ p.name, p.id ] }, include_blank: true %>
     </div>
     <div class="field mt-3">
       <% @product.files.each do |file| %>

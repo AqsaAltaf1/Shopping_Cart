@@ -19,8 +19,8 @@
     </div> 
   <% end %>
   <div class='address'>
-    <p>Delivery to: <%= current_user.First_Name %> <%= current_user.Last_Name %></p>
-    <p>Home: <%= current_user.Address %></p>
+    <p>Delivery to: <%= current_user.first_name %> <%= current_user.last_name %></p>
+    <p>Home: <%= current_user.address %></p>
     <p>Email to: <%= current_user.email %> </p>
   </div>
   <div class='checkout-pro'>
@@ -46,8 +46,8 @@
           <div class='col chec-detail'>
             <div>
               <ul class='list1'>
-                <li><%= product.Description%></li>
-                <li>Quantity:<%= item.quantity %><span class='bill'><b>RS.<%=item.quantity*product.Price%></b></span></li>
+                <li><%= product.description%></li>
+                <li>Quantity:<%= item.quantity %><span class='bill'><b>RS.<%=item.quantity*product.price%></b></span></li>
               </ul>     
             </div>
           </div>
