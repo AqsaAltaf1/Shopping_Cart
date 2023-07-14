@@ -27,7 +27,8 @@ body{
 }
 .navbar a{
   text-decoration: none;
-  color:black;
+  color:purple;
+  font-weight: 300;
 }
 .contain{
   padding-left: 0px;
@@ -47,6 +48,10 @@ body{
   box-shadow: -4px -5px 19px -4px rgba(140, 157, 184, 0.52);
   border-radius: 20px;
   background-color: white;
+  margin-top: 120px;
+}
+.productindex  {
+  margin-top: 120px;
 }
 .sign{
   background-color:#AAF0D1;
@@ -77,6 +82,7 @@ body{
   border-radius: 20px; 
   margin: auto;
   background-color: white;
+  margin-top:120px;
 }
 .links-file a{
   text-decoration: none;
@@ -90,6 +96,7 @@ body{
 }
 .table-head{
   background-color: #AAF0D1;
+  color: purple;
 }
 .notice{
   margin: 60px 0px 0px 0px;
@@ -327,6 +334,38 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
   padding: 5px;
   margin-left: 170px;
 }
+.btn-edit:hover{
+  background-color:  #89c5aa;
+}
 .back{
   margin-left: 20px;
+}
+.side{
+  background-color: #AAF0D1;
+}
+.btn-edit2{
+  background-color: #AAF0D1;
+  border: 0;
+  border-radius: 5px;
+  padding: 5px;
+}
+.btn-edit2:hover{
+  background-color:  #89c5aa;
+}
+.side a{
+  color: purple;
+  font-size: larger;
+  font-weight: 800;
+}
+.side a:hover{
+  color: purple;
+}
+.table a{
+  color:purple ;
+}
+.dash{
+  width: 100%;
+  float: right;
+  margin-top:100px;
+  margin-left: 200px;
 }

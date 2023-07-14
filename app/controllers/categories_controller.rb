@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :set_category, except: %i[index new create]
 
   def index
-    @categories = Category.all
+    @categories = Category.order(:id)
   end
 
   def show

@@ -1,27 +1,32 @@
-<h1>all Shops</h1>
-<table class="table table-striped table-hover">
-  <thead class='table-head'>
-    <tr>
-      <th scope="col">id</th>
-      <th scope="col">Name</th>
-      <th scope="col">Approval</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <% @shops.each do |shop|%>
-    <tbody>
-      <tr>
-        <th scope="row"><%= shop.id %></th>
-        <td><%= shop.Name %></td>
-        <td><%= shop.approval %></td>
-        <td><%= link_to 'edit', edit_user_shop_path(shop.user,shop)%> <%= link_to 'show', user_shop_path(shop.user,shop) %>  
-        <%= link_to 'Delete', user_shop_path(shop.user,shop), data: {
-          turbo_method: :delete,
-          turbo_confirm: "Are you sure?"
-        } %>
-        </td>
-      </tr>
-    </tbody>
-  <% end %>
-</table>
-
+<div class='row'>
+  <div>
+    <%= render 'shared/sidebar'%>
+  </div>
+  <div class='dash'>
+    <table class="table table-striped table-hover">
+      <thead class='table-head'>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Approval</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <% @shops.each do |shop|%>
+        <tbody>
+          <tr>
+            <th scope="row"><%= shop.id %></th>
+            <td><%= shop.Name %></td>
+            <td><%= shop.approval %></td>
+            <td><%= link_to 'edit', edit_user_shop_path(shop.user,shop)%> <%= link_to 'show', user_shop_path(shop.user,shop) %>  
+            <%= link_to 'Delete', user_shop_path(shop.user,shop), data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure?"
+            } %>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>  
+  </div>
+</div>

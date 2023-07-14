@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, except: %i[index new create delete_file]
   
   def index
-    @products = Product.all
+    @products = Product.order(:id)
   end
 
   def show

@@ -1,5 +1,9 @@
 class CartsController < ApplicationController
-  before_action :set_cart
+  before_action :set_cart, except: :index
+
+  def index
+    @carts = Cart.order(:id)
+  end
 
   def show
   end

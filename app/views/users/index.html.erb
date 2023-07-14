@@ -1,33 +1,35 @@
-<%= link_to 'shops',shops_index_path %>
-<%= link_to 'Categories',categories_path %>
-<%= link_to 'Products',products_path %>
-<table class="table table-striped table-hover">
-  <thead class='table-head'>
-    <tr>
-      <th scope="col">id</th>
-      <th scope="col">Full Name</th>
-      <th scope="col">Address</th>
-      <th scope="col">Status</th>
-      <th scope="col">role</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <% @users.each do |user|%>
-    <tbody>
-      <tr>
-        <th scope="row"><%= user.id %></th>
-        <td><%= user.First_Name %><%= user.Last_Name %></td>
-        <td><%= user.Address %></td>
-        <td><%= user.status %></td>
-        <td><%= user.role %></td>
-        <td><%= link_to 'show', user_path(user)%>  <%= link_to 'edit', edit_user_path(user)%> <%= link_to 'delete', user_path(user), data: {
-          turbo_method: :delete,
-          turbo_confirm: "Are you sure?"
-          }%>
-        </td>
-      </tr>
-    </tbody>
-  <% end %>
-</table>
-
- 
+<div class='d-flex'>
+  <div class=''>
+    <%= render 'shared/sidebar'%>
+  </div>
+  <div class='dash'>
+    <table class="table table-striped table-hover">
+      <thead class='table-head'>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Full Name</th>
+          <th scope="col">Address</th>
+          <th scope="col">Status</th>
+          <th scope="col">role</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <% @users.each do |user|%>
+        <tbody>
+          <tr>
+            <th scope="row"><%= user.id %></th>
+            <td><%= user.First_Name %><%= user.Last_Name %></td>
+            <td><%= user.Address %></td>
+            <td><%= user.status %></td>
+            <td><%= user.role %></td>
+            <td><%= link_to 'show', user_path(user)%>  <%= link_to 'edit', edit_user_path(user)%> <%= link_to 'delete', user_path(user), data: {
+              turbo_method: :delete,
+              turbo_confirm: "Are you sure?"
+              }%>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>

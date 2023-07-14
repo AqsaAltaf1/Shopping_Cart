@@ -1,8 +1,8 @@
 class OrdersController < ApplicationController
-  before_action :set_order
+  before_action :set_order, except: :index
   
   def index
-    @orders = Order.all
+    @orders = Order.order(:id)
   end
 
   def new

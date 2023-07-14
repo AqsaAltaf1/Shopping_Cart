@@ -2,7 +2,7 @@ class ShopsController < ApplicationController
   before_action :set_shop, except: :index
   
   def index
-    @shops = Shop.all
+    @shops = Shop.order(:id)
   end
 
   def show
