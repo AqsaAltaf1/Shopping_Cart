@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_cart, except: :index
 
   def index
@@ -17,9 +18,6 @@ class CartsController < ApplicationController
       @cart.items.create(product_id: @product.id, quantity: 1)
     end
     redirect_to cart_path(@cart)
-  end
-  
-  def check
   end
   
   def destroy

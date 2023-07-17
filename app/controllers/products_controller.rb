@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show search]
   before_action :set_product, except: %i[index new create delete_file search]
   
   def index
@@ -48,7 +49,7 @@ class ProductsController < ApplicationController
       redirect_to root_path and return
     else
       @parameter = params[:search]
-      @results = Product.all.where(Name: "#{@parameter}")
+      @results = Product.all.where("name ILIKE ?","#{@parameter}%")
     end
   end
 

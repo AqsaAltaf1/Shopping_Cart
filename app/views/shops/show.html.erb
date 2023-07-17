@@ -1,5 +1,10 @@
 <div class='productindex'>
   <h1 class='text-center p-2'><%= @shop.name %></h1>
-  <%= link_to 'Add Products', new_product_path,class:'btn btn-pro' %>
+  <%= link_to 'Add Products', new_product_path,class:'btn btn-add-pro' %>
+  <%= link_to 'edit', edit_user_shop_path(@shop.user,@shop),class:'btn btn-add-pro'  %>
+  <%= link_to 'Delete', user_shop_path(@shop.user,@shop), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  },class:'btn btn-add-pro'  %>
 </div>
 

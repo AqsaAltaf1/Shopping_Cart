@@ -14,4 +14,8 @@ class User < ApplicationRecord
     inactive: 0,
     active: 1
   } 
+
+  after_create do |user|
+    user.create_cart
+  end
 end

@@ -37,7 +37,7 @@ class ShopsController < ApplicationController
   def destroy
     @shop = @user.shop
     @shop.destroy
-    redirect_to shops_index_path(@user)
+    redirect_to root_path
   end
 
   private

@@ -8,10 +8,8 @@ module ProductsHelper
         turbo_method: :delete,
         turbo_confirm: "Are you sure?"
       },class:'btn btn-pro-del')
-    elsif current_user.present? && current_user.buyer?
-      product_show << button_to("Add to Cart", add_path(:product_id => @product), :method => :post, class:'btn btn-cart')
     else
-      product_show << "<button onclick='Data()', class='btn btn-cart'>Add To Cart</button>"
+      product_show << button_to("Add to Cart", add_path(:product_id => @product), :method => :post, class:'btn btn-cart')
     end
     product_show.html_safe
   end

@@ -9,7 +9,7 @@
           <div class='input-group'>
             <%= search_field_tag :search, params[:search],placeholder: 'search', class:'form-control'%>
             <div class='input-group-btn'>
-              <%= button_tag 'search', :class => 'btn btn-info glyphicon  glyphicon-search', :name => nil%>
+              <%= image_submit_tag('icons8-search-50.png',:class => 'btn btn-search glyphicon  glyphicon-search', :name => nil)%>
             </div>
           </div>
         <% end %>

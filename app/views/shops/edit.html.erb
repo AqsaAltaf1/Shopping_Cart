@@ -6,10 +6,12 @@
         <%= f.label :Name_of_shop %></br>
         <%= f.text_field :name , autofocus: true, autocomplete: "Name",class: 'form-control' %></br>
       </div>
-      <div>
-        <%= f.label :Approval %></br>
-        <%= f.text_field :approval,class: 'form-control'  %></br>
-      </div>
+      <% if current_user&.superadmin?%>
+        <div>
+          <%= f.label :Approval %></br>
+          <%= f.text_field :approval,class: 'form-control'  %></br>
+        </div>
+      <% end %> 
       <div class="actions mt-4 btn1">
         <%= f.submit "Update",class: 'form-control btn1-body' %>
       </div>
