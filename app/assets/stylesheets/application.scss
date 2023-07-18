@@ -162,11 +162,13 @@ select{
   color: black;
 }
 .container-pro{
+  margin-top: 90px;
   width: 50%;
   padding: 0px 0px 30px 0px;
   box-shadow: -4px -5px 19px -4px rgba(140, 157, 184, 0.52);
   border-radius: 20px;
   background: white;
+  margin-left:20px;
 }
 .carousel-control-next-icon {
 background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='black' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
@@ -375,4 +377,8 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
 }
 .btn-add-pro:hover{
   background-color:  #89c5aa;
+}
+.review{
+  margin-top: 90px;
+  padding-left:50px;
 }
