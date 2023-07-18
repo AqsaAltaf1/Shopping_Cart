@@ -49,7 +49,7 @@ class ProductsController < ApplicationController
       redirect_to root_path and return
     else
       @parameter = params[:search]
-      @results = Product.all.where("name ILIKE ?","#{@parameter}%")
+      @results = Product.all.where('name ILIKE :search OR description ILIKE :search', search: "%#{@parameter}%")
     end
   end
 

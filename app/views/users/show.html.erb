@@ -9,7 +9,7 @@
         <li><b>Country:</b></li><hr>
         <li><b>City:</b></li><hr>
         <li><b>Phone Number:</b></li><hr>
-        <li> <%= link_to('edit Account', edit_user_registration_path(@user), class:'btn btn-edit2')%></li>  
+        <li> <%= link_to('edit Account', edit_user_registration_path(:id => params[:id]), class:'btn btn-edit2')%></li>  
       </ul>
     </div>
     <div>
