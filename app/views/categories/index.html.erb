@@ -3,7 +3,7 @@
     <%= render 'shared/sidebar'%>
   </div>
   <div class='dash'>
-    <table class="table table-striped table-hover">
+    <table id="search-table" class="table table-striped table-hover">
       <thead class='table-head'>
         <tr>
           <th scope="col">id</th>
@@ -11,8 +11,8 @@
           <th scope="col">Actions</th>
         </tr>
       </thead>
-      <% @categories.each do |cat|%>
-        <tbody>
+      <tbody>
+        <% @categories.each do |cat|%>
           <tr>
             <th scope="row"><%= cat.id %></th>
             <td><%= cat.name %></td>
@@ -21,8 +21,8 @@
               turbo_confirm: "Are you sure?"
             }%></td>
           </tr>
-        </tbody>
-      <% end %>
+        <% end %>
+      </tbody> 
     </table>
     <%= link_to 'Add Categpries',new_category_path, class:'btn btn-pro' %>
   </div> 

@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, except: %i[index new create]
+  before_action :set_user, except: %i[index new create get_dataset]
 	
   def index
-	  @users=User.order(:id)
+    @users=User.all
   end
 
   def show
@@ -11,7 +11,6 @@ class UsersController < ApplicationController
 
 	def new
 	  @user = User.new
-		byebug
 	end 
 
 	def create

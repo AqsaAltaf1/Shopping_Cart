@@ -76,5 +76,4 @@ gem 'devise'
 gem 'byebug'
 gem "mini_magick"
 gem 'jquery-rails'
-gem 'ajax-datatables-rails'
-gem 'jquery-datatables'
+gem 'sass-rails'
