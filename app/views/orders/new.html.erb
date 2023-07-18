@@ -5,11 +5,11 @@
       <p>Total Items:<%=cart_count(@cart) %></p>
       <div class='mt-2'>
         <%= f.label :total_bill%>
-        <%= f.number_field :total_bill,value: total_price,placeholder: :'Your bill',class:'form-control' %>
+        <%= f.number_field :total_bill,value: total_price,readonly: true,class:'form-control' %>
       </div>
       <div class='mt-2'>
         <%= f.label :shipping_address%>
-        <%= f.text_field :shipping_address,placeholder: 'shipping Address',class:'form-control' %>
+        <%= f.text_field :shipping_address,placeholder:'shipping Address',class:'form-control' %>
       </div>
       <div class='mt-2'>
         <%= f.label :payment_method%>

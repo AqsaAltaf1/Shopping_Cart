@@ -1,7 +1,9 @@
 <nav class="navbar fixed-top ">
   <div class="container-fluid contain">
     <div>
-      <%= image_tag('log1.png',class:'logo1')%><%= image_tag('log2.png',class:'logo2')%>
+      <%= link_to root_path do %>
+        <%= image_tag('log1.png',class:'logo1')%><%= image_tag('log2.png',class:'logo2')%>
+      <% end %>  
     </div>
     <div class='d-flex'>
       <div class='searchbar'>

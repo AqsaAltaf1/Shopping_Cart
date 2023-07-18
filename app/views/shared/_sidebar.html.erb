@@ -1,7 +1,7 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 h-100 side position-fixed">
   <ul class="nav nav-pills flex-column mb-auto mt-5">
     <li>
-      <a href="" class="nav-link mt-5">
+      <a href="<%= root_path %>" class="nav-link mt-5">
         <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
           Home
       </a>
@@ -25,15 +25,15 @@
       </a>
     </li>
     <li>
-      <a href="<%= products_path %>" class="nav-link">
-        <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-        Products
-      </a>
-    </li>
-    <li>
       <a href="<%= orders_path %>" class="nav-link">
         <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
         Orders
+      </a>
+    </li>
+    <li>
+      <a href="<%= products_path %>" class="nav-link">
+        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+          Products
       </a>
     </li>
   </ul>

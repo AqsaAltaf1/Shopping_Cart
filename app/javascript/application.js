@@ -8,6 +8,9 @@ import "DataTable";
 
 $(document).on("turbo:load", () => {
   $("#search-table").DataTable();
+  $("#search-category").DataTable();
+  $("#search-order").DataTable();
+  $("#search-shop").DataTable();
 });
 
 
