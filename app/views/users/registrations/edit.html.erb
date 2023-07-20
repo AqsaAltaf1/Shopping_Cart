@@ -37,9 +37,15 @@
       </div>
 
       <% if current_user&.superadmin? %>
-        <div class='field col'>
-          <%= f.label :status %><br />
-          <%= f.text_field :status, autofocus: true, autocomplete: "Phone_number",class: 'form-control' %>
+        <div class='field row'>
+          <div class='field col'>
+            <%= f.label :status %><br />
+            <%= f.text_field :status, autofocus: true, autocomplete: "Phone_number",class: 'form-control' %>
+          </div>
+          <div class='field col'>
+            <%= f.label :role %><br />
+            <%= f.text_field :role, autofocus: true, autocomplete: "Phone_number",class: 'form-control' %>
+          </div>
         </div>
       <% end %>
 

@@ -1,20 +1,20 @@
-<%= form_with model: [@product, @product.reviews.build ] do |f| %>
-  <div class='form-body'>
-    <%if user_signed_in?%>
+<div class='mt-4'>
+  <%= form_with model: [@product, @product.reviews.build ] do |f| %>
+    <div class='form-body'>
+      <%if user_signed_in?%>
+        <div class="field mt-3">
+          <%= f.hidden_field :user_id,value: current_user.id %>
+        </div> 
+      <% end %>
       <div class="field mt-3">
-        <%= f.text_field :name,placeholder: 'name',class:'form-control' %>
-        <%= f.hidden_field :user_id,value: current_user.id,readonly: true,class:'form-control' %>
+        <%= f.text_area :body,placeholder: 'your review',class:'form-control' %>
       </div>
-    <% else %>  
-      <div class="field mt-3">
-        <%= f.text_field :name,placeholder: 'name',class:'form-control' %>
+      <div id="rateYo" class='mt-2'>
       </div>
-    <% end %>
-    <div class="field mt-3">
-      <%= f.text_field :body,placeholder: 'your review',class:'form-control' %>
+      <%= f.hidden_field :rating,value:'', :id => "cashBack" %> 
+      <div class="actions  mt-3 btn1">
+        <%= f.submit "Create",class: 'form-control btn1-body', id: 'btn3' %>
+      </div>
     </div>
-    <div class="actions  mt-3 btn1">
-      <%= f.submit "Create",class: 'form-control btn1-body' %>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

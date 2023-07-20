@@ -12,6 +12,7 @@
 *
 *= require_tree .
 *= require_self
+*= require jquery.rateyo
 */
 @import url("https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css");
 @import "bootstrap";
@@ -381,4 +382,10 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.
 .review{
   margin-top: 90px;
   padding-left:50px;
+}
+.rating{
+  margin-left: 60px;
+}
+.rev{
+  margin-left:40px;
 }

@@ -14,13 +14,11 @@ class ReviewsController < ApplicationController
     @review = @product.reviews.build(review_params)
     if @review.save
       redirect_to product_path(@product)
-    else
-      render :new
     end
   end
   private
 
   def review_params
-    params.require(:review).permit(:product_id, :user_id, :name, :body)
+    params.require(:review).permit(:product_id, :user_id, :rating, :body)
   end
 end

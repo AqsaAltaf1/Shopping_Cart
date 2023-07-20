@@ -13,4 +13,11 @@ module ProductsHelper
     end
     product_show.html_safe
   end
+
+  def product_review_logic
+    rate= @product.reviews.pluck(:rating).sum
+    num= (@product.reviews.count)+0.0
+    (rate/num)
+  end
+
 end
