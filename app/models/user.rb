@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :profile,dependent: :destroy
   has_one :cart,dependent: :destroy
   has_one :shop, dependent: :destroy
   has_many :reviews, dependent: :destroy

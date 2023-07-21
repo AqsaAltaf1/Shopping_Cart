@@ -10,7 +10,7 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @shop = current_user.shop
+    @product = Product.new
   end
   
   def create

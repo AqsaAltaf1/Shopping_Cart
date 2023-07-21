@@ -23,10 +23,16 @@
               </div>
             </div>
           <% end %>
-          <div class="card-body">
+          <div class="card-product">
             <h5 class="card-title"><%= product.name %></h5>
             <p class="card-text">RS.<%= product.price %></p>
-            <%= link_to 'Details', product_path(product), class:'btn btn-pro'%>
+            <%= link_to 'Details', product_path(product)%>
+            <%= link_to 'edit', edit_product_path(product)%>
+            <%= link_to 'delete', product_path(product),
+             data: {
+             turbo_method: :delete,
+             turbo_confirm: "Are you sure?"
+            } %>
           </div>
         </div>
       <% end %>

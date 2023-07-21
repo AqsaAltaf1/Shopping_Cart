@@ -1,5 +1,5 @@
 <div class='mt-4'>
-  <%= form_with model: [@product, @product.reviews.build ] do |f| %>
+  <%= form_with model: [@product, @product.reviews.build] do |f| %>
     <div class='form-body'>
       <%if user_signed_in?%>
         <div class="field mt-3">

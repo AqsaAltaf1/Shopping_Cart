@@ -1,7 +1,7 @@
 module ProductsHelper
   def product_show_logic
     product_show = ''
-    if (current_user.present? && current_user.seller?)||(current_user.present? && current_user.superadmin?)
+    if (current_user.present?&&current_user.superadmin?)
       product_show << link_to('edit', edit_product_path(@product),class:'btn btn-pro ml-3')
       product_show << link_to('delete', product_path(@product),
       data: {

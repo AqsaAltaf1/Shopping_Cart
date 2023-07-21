@@ -71,6 +71,11 @@
         <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: 'form-control'%>
       </div>
 
+      <div class="field mt-2">
+        <%= f.label :profile %>
+        <%= f.file_field :profile, class:'form-control' %>
+      </div>
+
       <div class="actions mt-4 btn1">
         <%= f.submit "Update" ,class: 'form-control btn1-body' %>
       </div>
