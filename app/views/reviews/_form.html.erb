@@ -18,3 +18,17 @@
     </div>
   <% end %>
 </div>
+<script>
+  $(document).on("turbo:load", () => { 
+    $(function () {
+      $("#rateYo").rateYo()
+      .on("rateyo.change", function (e, data) 
+      {
+        var rating = data.rating;
+        $(this).next().text(rating);
+        $("#cashBack").val(rating);
+        console.log(rating); 
+      });       
+    });
+  });
+</script>

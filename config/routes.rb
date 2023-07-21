@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  post '/rate' => 'rater#create', :as => 'rate'
   root 'products#index'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -9,10 +8,9 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'users/index'
     get 'shops/index'
-    resources :users, except: :index  do
-      resources :shops, except: :index 
-    end
+    resources :users, except: :index
   end
+  resources :shops, except: :index 
   resources :categories
   resources :products do
     member do

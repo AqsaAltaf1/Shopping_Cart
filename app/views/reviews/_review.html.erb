@@ -8,3 +8,19 @@
   :<%= review.body %>
   <div class="product_rating" user_rating= '<%= review.rating %>'></div>
 </div>
+<script>
+  $(document).on("turbo:load", () => {
+    $(".product_rating").each( function() {
+      var rating = $(this).attr("user_rating");
+      console.log(rating)
+      $(this).rateYo(
+        {
+            rating: rating,
+            fullStar: true,
+            readOnly: true,
+            starWidth: "15px"
+        }
+      );
+    });
+  });
+</script>

@@ -3,18 +3,18 @@ class ProductsController < ApplicationController
   before_action :set_product, except: %i[index new create delete_file search]
   
   def index
-    @products = Product.order(:id)
+    @products = Product.order(name: :asc)
   end
 
   def show
   end
 
   def new
-    @shop=Shop.find(params[:shop_id])
+    @shop = current_user.shop
   end
   
   def create
-    @shop=Shop.find(product_params[:shop_id])
+    @shop = current_user.shop
     @product = @shop.products.build(product_params)
     if @product.save
       redirect_to product_path(@product)
@@ -57,7 +57,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price,:category_id, :shop_id,files: [])
+    params.require(:product).permit(:name, :description, :price,:category_id,files: [])
   end
 
   def set_product

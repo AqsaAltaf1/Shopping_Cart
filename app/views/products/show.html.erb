@@ -31,10 +31,8 @@
             <li><b>Name:</b><span class='list2'><%= @product.name %></span></li><hr>
             <li><b>Description:</b><span class='list2'><%= @product.description%></span></li><hr>
             <li><b>Price:</b><span class='list2'><%= @product.price %></span></li><hr>
-            <%= product_show_logic %>
-            <% product_review_logic %>
-            <% av=product_review_logic  %>
-            <div id="movie_rating" data-rating= '<%= av %>' class='mt-3'></div>
+            <%= product_show_logic %> 
+            <div id="movie_rating" data-rating= '<%= product_review_logic %>' class='mt-3'></div>
           </ul>     
         </div>
       </div>
@@ -45,3 +43,19 @@
     <%= render 'reviews/form'%>
   </div>
 </div>   
+<script>
+  $(document).on("turbo:load", () => {
+    $("#movie_rating").each( function() {
+      var rating = $(this).attr("data-rating");
+      console.log(rating)
+      $(this).rateYo(
+        {
+          rating: rating,
+          fullStar: true,
+          readOnly: true,
+          starWidth: "20px"
+        }
+      );
+    });
+  });
+</script>

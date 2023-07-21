@@ -27,3 +27,8 @@
     <%= link_to 'Add Categpries',new_category_path, class:'btn btn-pro' %>
   </div> 
 </div>
+<script>
+  $(document).on("turbo:load", () => {
+    $("#search-category").DataTable();
+  });
+</script>
