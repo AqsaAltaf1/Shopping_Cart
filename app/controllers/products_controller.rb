@@ -10,11 +10,12 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    @shop=Shop.find(params[:shop_id])
   end
   
   def create
-    @product = Product.create(product_params)
+    @shop=Shop.find(product_params[:shop_id])
+    @product = @shop.products.build(product_params)
     if @product.save
       redirect_to product_path(@product)
     else
@@ -49,17 +50,17 @@ class ProductsController < ApplicationController
       redirect_to root_path and return
     else
       @parameter = params[:search]
-      @results = Product.all.where('name ILIKE :search OR description ILIKE :search', search: "%#{@parameter}%")
+      @results = Product.joins(:shop).where('shops.name ILIKE :search OR products.name ILIKE :search OR products.description ILIKE :search',search: "%#{@parameter}%")
     end
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price,:category_id, files: [])
+    params.require(:product).permit(:name, :description, :price,:category_id, :shop_id,files: [])
   end
 
   def set_product
-    @product = Product.find(params[:id])
+    @product=Product.find(params[:id])
   end
 end

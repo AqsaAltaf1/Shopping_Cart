@@ -7,6 +7,7 @@ class ShopsController < ApplicationController
 
   def show
     @shop = @user.shop
+    @products = @shop.products
   end
 
   def new
