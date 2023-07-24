@@ -1,0 +1,18 @@
+<div class='container-login mb-5' mb-5'>
+  <h3 class='text-center sign p-2'>Edit Shop</h3>
+  <%= form_with model: [@user, @shop ] do |f| %>
+    <div class='form-body'>
+      <div>
+        <%= f.label :Name_of_shop %></br>
+        <%= f.text_field :Name , autofocus: true, autocomplete: "Name",class: 'form-control' %></br>
+      </div>
+      <div>
+        <%= f.label :Approval %></br>
+        <%= f.text_field :approval,class: 'form-control'  %></br>
+      </div>
+      <div class="actions mt-4 btn1">
+        <%= f.submit "Update",class: 'form-control btn1-body' %>
+      </div>
+    </div>
+  <% end %>
+</div>

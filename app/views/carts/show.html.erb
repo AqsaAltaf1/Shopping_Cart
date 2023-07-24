@@ -1,0 +1,9 @@
+<%=link_to 'Continue Shopping', root_path ,class:'btn btn-pro1'%>
+<h1 class='text-center p-2'>My cart</h1>
+<% if @cart.items.count > 0 %>
+  <div id="show_user_information"> 
+    <%= render 'item' %>
+  </div>
+<% else %>
+  <h3>Your Cart is empty</h3>
+<% end%>

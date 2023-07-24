@@ -1,0 +1,13 @@
+<div class='container-login mb-5'>
+<h3 class='text-center sign p-2'>Create Shop</h3>
+<%= form_with model: [@user, @user.create_shop ] do |f| %>
+  <div class='form-body'>
+    <div class="field mt-3">
+      <%= f.label :Name_of_shop %></br>
+      <%= f.text_field :Name,class:'form-control' %>
+    </div>
+    <div class="actions  mt-3 btn1">
+      <%= f.submit "Create",class: 'form-control btn1-body' %>
+    </div>
+  </div>
+<% end %>
