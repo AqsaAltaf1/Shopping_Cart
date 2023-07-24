@@ -9,16 +9,18 @@ class UserPolicy < ApplicationPolicy
   def index?
     @user.superadmin?
   end
+ 
+  def show?
+    @user.superadmin? || user == record
+  end
 
   def edit?
-    @user.superadmin? || user == record
+    byebug
+    show?
   end
 
   def update?
     edit?
   end
 
-  def show?
-    edit?
-  end
 end
