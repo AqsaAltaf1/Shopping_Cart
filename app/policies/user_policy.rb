@@ -11,14 +11,14 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    update?
+    @user.superadmin? || user == record
   end
 
   def update?
-    @user.superadmin?
+    edit?
   end
 
   def show?
-    # @user= User.where(user_id: @user)
+    edit?
   end
 end
