@@ -1,0 +1,11 @@
+<%= form_with model: [@category] do |f| %>
+  <div class='form-body'>
+    <div class="field mt-3">
+      <%= f.label :Name %>
+      <%= f.text_field :Name ,autofocus: true, autocomplete: "Name",class:'form-control' %>
+    </div>
+    <div class="actions  mt-3 btn1">
+      <%= f.submit "Save",class: 'form-control btn1-body' %>
+    </div>
+  </div>
+<% end %>
