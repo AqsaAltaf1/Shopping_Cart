@@ -1,0 +1,39 @@
+<%= form_with model: [@product] do |f| %>
+  <div class='form-body'>
+    <div class="field mt-3">
+      <%= f.label :Name %>
+      <%= f.text_field :Name ,autofocus: true, autocomplete: "Name",class:'form-control' %>
+    </div>
+    <div class="field mt-3">
+      <%= f.label :Description %>
+      <%= f.text_area :Description  ,autofocus: true, autocomplete: "Description",class:'form-control' %>
+    </div>
+    <div class="field mt-3">
+      <%= f.label :Price %>
+      <%= f.number_field :Price ,autofocus: true, autocomplete: "price",class:'form-control' %>
+    </div>
+    <div class="field mt-3">
+    <%= f.label :Category %>
+    <%= f.select :category_id, Category.all.collect { |p| [ p.Name, p.id ] }, include_blank: true %>
+    </div>
+    <div class="field mt-3">
+      <% @product.files.each do |file| %>
+        <li>
+          <%= link_to file.filename, rails_blob_path(file, disposition: :inline) %>
+          <%= link_to 'Remove', delete_file_product_path(file.id),
+          data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure" 
+          } %>
+        </li>
+      <% end %>
+    </div>
+    <div class="field mt-3">
+      <%= f.label :image %>
+      <%= f.file_field :files, multiple: true , class:'form-control'%>
+    </div>
+    <div class="actions  mt-3 btn1">
+      <%= f.submit "Save",class: 'form-control btn1-body' %>
+    </div>
+  </div>
+<% end %>
