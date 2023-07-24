@@ -1,7 +1,7 @@
 <div class='summery'>
   <h3>Order Summary</h3>
   <p>Total Items:<%=cart_count(@cart) %></p>
-  <%= button_to "PROCEED TO CHECKOUT", check_path(@cart), :method => :post, class:'btn btn-cart' %>
+  <%= button_to "PROCEED TO CHECKOUT", check_path(@cart), :method => :get, class:'btn btn-cart' %>
 </div>
 <div class='item'>
   <% @cart.items.order(:id).each do |item|%> 
