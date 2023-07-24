@@ -1,12 +1,13 @@
 class ApplicationController < ActionController::Base
+  include Pundit::Authorization
   skip_before_action :verify_authenticity_token
-  before_action :cart_user
-  def cart_user
-    if current_user.present?
-      if current_user.cart.nil?
-        current_user.create_cart
-        @cart=current_user.cart
-      end
-    end
+
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  private
+
+  def user_not_authorized
+    flash[:alert] = 'You are not authorized to perform this action.'
+    redirect_to root_path
   end
 end

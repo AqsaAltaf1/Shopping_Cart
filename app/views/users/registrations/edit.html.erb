@@ -1,9 +1,55 @@
+<% if policy(@user).edit? %>
 <div class='container signup mb-5'>
   <h3 class='text-center sign p-2'>Edit <%= resource_name.to_s.humanize %></h3>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "users/shared/error_messages", resource: resource %>
+   <%= form_for(@user) do |f| %>
     <%= render "users/shared/error_messages", resource: resource %>
     <div class='form-body'>
+      <div class="field row mt-3">
+        <div class='col'>
+          <%= f.label :First_Name %><br />
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "First_Name",class: 'form-control' %>
+        </div>
+        <div class='col'>
+          <%= f.label :Last_Name %><br />
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "Last_Name",class: 'form-control' %>
+        </div> 
+      </div>
+
+      <div class="field row mt-2">
+        <div class='col'>
+          <%= f.label :country %><br />
+          <%= f.text_field :country, autofocus: true, autocomplete: "Country",class: 'form-control' %>
+        </div>
+        <div class='col'>
+          <%= f.label :city %><br />
+          <%= f.text_field :city, autofocus: true, autocomplete: "City",class: 'form-control' %>
+        </div> 
+      </div>
+
+      <div class='row mt-2'>
+        <div class='field col'>
+          <%= f.label :Phone_number %><br />
+          <%= f.number_field :phone_number, autofocus: true, autocomplete: "Phone_number",class: 'form-control' %>
+        </div>
+        <div class='field col'>
+          <%= f.label :Address %><br />
+          <%= f.text_field :address, autofocus: true, autocomplete: "Address",class: 'form-control' %>
+        </div>
+      </div>
+
+      <% if current_user&.superadmin? %>
+        <div class='field row'>
+          <div class='field col'>
+            <%= f.label :status %><br />
+            <%= f.text_field :status, autofocus: true, autocomplete: "Phone_number",class: 'form-control' %>
+          </div>
+          <div class='field col'>
+            <%= f.label :role %><br />
+            <%= f.text_field :role, autofocus: true, autocomplete: "Phone_number",class: 'form-control' %>
+          </div>
+        </div>
+      <% end %>
+
       <div class="field mt-3">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email",class: 'form-control' %>
@@ -16,9 +62,8 @@
       <div class="field mt-2">
         <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
         <%= f.password_field :password, autocomplete: "new-password" ,class: 'form-control'%>
-        <% if @minimum_password_length %>
-          <br />
-          <em><%= @minimum_password_length %> characters minimum</em>
+        <% if @minimum_password_length %> <em><%= @minimum_password_length %> characters minimum</em>
+         <br /> 
         <% end %>
       </div>
 
@@ -28,16 +73,16 @@
       </div>
 
       <div class="field mt-2">
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password" ,class: 'form-control'%>
+        <%= f.label :profile %>
+        <%= f.file_field :profile, class:'form-control' %>
       </div>
 
-      <div class="actions mt-4 btn">
+      <div class="actions mt-4 btn1">
         <%= f.submit "Update" ,class: 'form-control btn1-body' %>
       </div>
     <% end %>
   </div>
-  <h3>Cancel my account</h3>
-  <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
-  <%= link_to "Back", :back %>
+  <p class='text-center'>Unhappy?<%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class:'btn-edit' %></p>
+  <%= link_to "Back", :back, class:'back' %> 
 </div>  
+<% end %>

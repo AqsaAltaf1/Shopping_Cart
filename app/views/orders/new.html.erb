@@ -1,7 +1,26 @@
-<div class='bg-light'>
+<div class='bg-light productindex'>
+  <%= form_with model: [@cart.orders.build] do |f| %>
+    <div class='summery'>
+      <h3>Order Summary</h3>
+      <p>Total Items:<%=cart_count(@cart) %></p>
+      <div class='mt-2'>
+        <%= f.label :total_bill%>
+        <%= f.number_field :total_bill,value: total_price,readonly: true,class:'form-control' %>
+      </div>
+      <div class='mt-2'>
+        <%= f.label :shipping_address%>
+        <%= f.text_field :shipping_address,placeholder:'shipping Address',class:'form-control' %>
+      </div>
+      <div class='mt-2'>
+        <%= f.label :payment_method%>
+        <%= f.select :payment_method, [ 'cash on delivery', 'online payment'], {}, class:"form-select" %>
+      </div>
+      <%= f.submit "Place Order", class:'btn btn-order mt-3' %>
+    </div> 
+  <% end %>
   <div class='address'>
-    <p>Delivery to: <%= current_user.First_Name %> <%= current_user.Last_Name %></p>
-    <p>Home: <%= current_user.Address %></p>
+    <p>Delivery to: <%= current_user.first_name %> <%= current_user.last_name %></p>
+    <p>Home: <%= current_user.address %></p>
     <p>Email to: <%= current_user.email %> </p>
   </div>
   <div class='checkout-pro'>
@@ -27,13 +46,13 @@
           <div class='col chec-detail'>
             <div>
               <ul class='list1'>
-                <li><%= product.Description%></li>
-                <li>Quantity:<%= item.quantity %><span class='bill'><b>RS.<%=item.quantity*product.Price%></b></span></li>
+                <li><%= product.description%></li>
+                <li>Quantity:<%= item.quantity %><span class='bill'><b>RS.<%=item.quantity*product.price%></b></span></li>
               </ul>     
             </div>
           </div>
         </div>
-        <hr class='horizontal'>
+        <hr>
       <% end %>
     </div>
   </div>

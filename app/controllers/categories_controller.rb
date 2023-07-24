@@ -2,7 +2,8 @@ class CategoriesController < ApplicationController
   before_action :set_category, except: %i[index new create]
 
   def index
-    @categories = Category.all
+    @categories = Category.order(:id)
+    authorize @categories
   end
 
   def show
@@ -10,6 +11,7 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    authorize @category
   end
 
   def create
@@ -22,6 +24,7 @@ class CategoriesController < ApplicationController
   end
 
   def edit
+    authorize @category
   end
 
   def update
@@ -40,7 +43,7 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:Name)
+    params.require(:category).permit(:name)
   end
 
   def set_category

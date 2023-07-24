@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_05_074446) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_20_110928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,7 +50,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_074446) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "Name"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,18 +65,41 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_074446) do
     t.index ["product_id"], name: "index_items_on_product_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.bigint "cart_id", null: false
+    t.bigint "total_bill"
+    t.text "shipping_address"
+    t.string "payment_method"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
+  end
+
   create_table "products", force: :cascade do |t|
-    t.string "Name"
-    t.text "Description"
-    t.bigint "Price"
+    t.string "name"
+    t.text "description"
+    t.bigint "price"
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "shop_id", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["shop_id"], name: "index_products_on_shop_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "user_id"
+    t.float "rating", default: 0.0
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_reviews_on_product_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "shops", force: :cascade do |t|
-    t.string "Name"
+    t.string "name"
     t.integer "approval", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -101,13 +124,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_074446) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "First_Name"
-    t.string "Last_Name"
-    t.string "City"
-    t.string "Country"
-    t.bigint "Phone_number"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "city"
+    t.string "country"
+    t.bigint "phone_number"
     t.integer "role", default: 0
-    t.text "Address"
+    t.text "address"
     t.integer "status", default: 0
     t.datetime "locked_at"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
@@ -120,6 +143,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_05_074446) do
   add_foreign_key "carts", "users"
   add_foreign_key "items", "carts"
   add_foreign_key "items", "products"
+  add_foreign_key "orders", "carts"
   add_foreign_key "products", "categories"
+  add_foreign_key "products", "shops"
+  add_foreign_key "reviews", "products"
+  add_foreign_key "reviews", "users"
   add_foreign_key "shops", "users"
 end

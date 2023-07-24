@@ -1,9 +1,9 @@
 class AddColumnToUser < ActiveRecord::Migration[7.0]
   def change
-    add_column :users, :First_Name, :string
-    add_column :users, :Last_Name, :string 
-    add_column :users, :City, :string 
-    add_column :users, :Country, :string  
-    add_column :users, :Phone_number, :bigint  
+    add_column :users, :first_name, :string
+    add_column :users, :last_name, :string 
+    add_column :users, :city, :string 
+    add_column :users, :country, :string  
+    add_column :users, :phone_number, :bigint  
   end
 end

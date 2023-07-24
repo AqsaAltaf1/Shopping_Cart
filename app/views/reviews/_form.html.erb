@@ -1,0 +1,34 @@
+<div class='mt-4'>
+  <%= form_with model: [@product, @product.reviews.build] do |f| %>
+    <div class='form-body'>
+      <%if user_signed_in?%>
+        <div class="field mt-3">
+          <%= f.hidden_field :user_id,value: current_user.id %>
+        </div> 
+      <% end %>
+      <div class="field mt-3">
+        <%= f.text_area :body,placeholder: 'your review',class:'form-control' %>
+      </div>
+      <div id="rateYo" class='mt-2'>
+      </div>
+      <%= f.hidden_field :rating,value:'', :id => "cashBack" %> 
+      <div class="actions  mt-3 btn1">
+        <%= f.submit "Create",class: 'form-control btn1-body', id: 'btn3' %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<script>
+  $(document).on("turbo:load", () => { 
+    $(function () {
+      $("#rateYo").rateYo()
+      .on("rateyo.change", function (e, data) 
+      {
+        var rating = data.rating;
+        $(this).next().text(rating);
+        $("#cashBack").val(rating);
+        console.log(rating); 
+      });       
+    });
+  });
+</script>

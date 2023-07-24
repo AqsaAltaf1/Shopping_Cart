@@ -1,0 +1,26 @@
+<div class='container-fluid productindex bg-light'>
+  <div class='row text-center m-auto'>
+    <% @results.each do |product|%>
+      <div class="card" style="width: 15rem;">
+        <% if product.files.attached? %>
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class=”carousel-inner”>
+                <%product.files.each_with_index do |file,i|%>
+                  <div class="carousel-item <%= "active " if i==0 %>">
+                    <%= link_to image_tag(file , class:'product-img'),product_path(product) %>
+                  </div>
+                <%end%>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= product.name %></h5>
+          <p class="card-text">RS.<%= product.price %></p>
+          <%= link_to 'Details', product_path(product), class:'btn btn-pro'%>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

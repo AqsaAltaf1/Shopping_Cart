@@ -1,3 +1,42 @@
-<h1 class='text-center p-2'><%= @shop.Name %></h1>
-<%= link_to 'Add Products', new_product_path,class:'btn btn-pro' %>
+<div class='productindex'>
+  <h1 class='text-center p-2'><%= @shop.name %></h1>
+  <%= link_to 'Add Products', new_product_path,class:'btn btn-add-pro' %>
+  <%= link_to 'edit', edit_shop_path(@shop),class:'btn btn-add-pro'  %>
+  <%= link_to 'Delete', shop_path(@shop), data: {
+    turbo_method: :delete,
+    turbo_confirm: "Are you sure?"
+  },class:'btn btn-add-pro'  %>
+  <div class='container-fluid productindex bg-light'>
+    <div class='row text-center m-auto'>
+      <% @products.each do |product|%>
+        <div class="card" style="width: 15rem;">
+          <% if product.files.attached? %>
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class=”carousel-inner”>
+                  <%product.files.each_with_index do |file,i|%>
+                    <div class="carousel-item <%= "active " if i==0 %>">
+                      <%= link_to image_tag(file , class:'product-img'),product_path(product) %>
+                    </div>
+                  <%end%>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <div class="card-product">
+            <h5 class="card-title"><%= product.name %></h5>
+            <p class="card-text">RS.<%= product.price %></p>
+            <%= link_to 'Details', product_path(product)%>
+            <%= link_to 'edit', edit_product_path(product)%>
+            <%= link_to 'delete', product_path(product),
+             data: {
+             turbo_method: :delete,
+             turbo_confirm: "Are you sure?"
+            } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 

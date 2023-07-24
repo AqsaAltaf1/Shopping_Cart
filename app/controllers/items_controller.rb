@@ -12,6 +12,6 @@ class ItemsController < ApplicationController
   
   private 
   def item_params
-    params.require(:item).permit(:quantity)
+    params.require(:item).permit(:quantity,:total)
   end
 end

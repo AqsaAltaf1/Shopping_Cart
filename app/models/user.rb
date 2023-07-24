@@ -1,7 +1,9 @@
 class User < ApplicationRecord
+  has_one_attached :profile,dependent: :destroy
   has_one :cart,dependent: :destroy
   has_one :shop, dependent: :destroy
-  validates :First_Name, :Last_Name, :Phone_number, presence: true
+  has_many :reviews, dependent: :destroy
+  validates :first_name, :last_name, :phone_number, presence: true
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable,:confirmable
          
@@ -14,4 +16,8 @@ class User < ApplicationRecord
     inactive: 0,
     active: 1
   } 
+
+  after_create do |user|
+    user.create_cart
+  end
 end

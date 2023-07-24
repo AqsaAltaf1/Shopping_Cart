@@ -1,8 +1,9 @@
 class ProductsController < ApplicationController
-  before_action :set_product, except: %i[index new create delete_file]
+  before_action :authenticate_user!, except: %i[index show search]
+  before_action :set_product, except: %i[index new create delete_file search]
   
   def index
-    @products = Product.all
+    @products = Product.order(name: :asc)
   end
 
   def show
@@ -10,10 +11,12 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    authorize @product
   end
   
   def create
-    @product = Product.create(product_params)
+    @shop = current_user.shop
+    @product = @shop.products.build(product_params)
     if @product.save
       redirect_to product_path(@product)
     else
@@ -22,6 +25,7 @@ class ProductsController < ApplicationController
   end
   
   def edit
+    authorize @product
   end
 
   def update
@@ -43,13 +47,22 @@ class ProductsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to root_path and return
+    else
+      @parameter = params[:search]
+      @results = Product.joins(:shop).where('shops.name ILIKE :search OR products.name ILIKE :search OR products.description ILIKE :search',search: "%#{@parameter}%")
+    end
+  end
+
   private
 
   def product_params
-    params.require(:product).permit(:Name, :Description, :Price,:category_id, files: [])
+    params.require(:product).permit(:name, :description, :price,:category_id,files: [])
   end
 
   def set_product
-    @product = Product.find(params[:id])
+    @product=Product.find(params[:id])
   end
 end

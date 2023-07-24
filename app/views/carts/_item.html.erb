@@ -1,7 +1,8 @@
 <div class='summery'>
   <h3>Order Summary</h3>
   <p>Total Items:<%=cart_count(@cart) %></p>
-  <%= button_to "PROCEED TO CHECKOUT", check_path(@cart), :method => :get, class:'btn btn-cart' %>
+  <p>Total Price:<%= total_price%></p>
+  <%= button_to "PROCEED TO CHECKOUT", new_order_path(@cart), :method => :get, class:'btn btn-cart' %>
 </div>
 <div class='item'>
   <% @cart.items.order(:id).each do |item|%> 
@@ -33,9 +34,9 @@
       <div class='col'>
         <div>
           <ul class='list1'>
-            <li><b>Description:</b><span class='list2'><%= product.Description%></span></li>
-            <li><b>Price:</b><span class='list2'>Rs. <%= product.Price %></span>
-            <span class='bill'><b>Total RS.<%=item.quantity*product.Price%></b></span></li>
+            <li><b>Description:</b><span class='list2'><%= product.description%></span></li>
+            <li><b>Price:</b><span class='list2'>Rs. <%= product.price %></span>
+            <span class='bill'><b>Total RS.<%=item.quantity*product.price%></b></span></li>
             <div class='row text-center'>
               <div class='col-9 mt-3'>
                 <div class='row'>
@@ -78,8 +79,6 @@
     }
   }
   a.textContent = quantity;
-  console.log(quantity)
-  console.log(Id)
    $.ajax({
    url: "/items/update_item/"+Id,
    type: "Patch",

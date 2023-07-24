@@ -1,12 +1,14 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, except: %i[index new create]
+  before_action :set_user, except: %i[index new create get_dataset]
 	
   def index
-	  @users=User.order(:id)
+    @users=User.all
+		authorize @users
   end
 
   def show
+		authorize @user
   end
 
 	def new
@@ -23,11 +25,13 @@ class UsersController < ApplicationController
 	end
 
   def edit
+		authorize @user
   end
 
 	def update
+		authorize @user
 		if @user.update(user_params)
-			redirect_to users_index_path
+			redirect_to user_path(@user)
 		else
 			render :edit
 		end
@@ -41,7 +45,7 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-    params.require(:user).permit(:First_Name, :Last_Name, :Country, :City, :role, :status, :Address, :phone_number)
+    params.require(:user).permit(:first_name, :last_name, :country, :city, :role, :status, :address, :phone_number,:profile)
 	end
 
 	def set_user

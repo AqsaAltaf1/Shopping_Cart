@@ -7,33 +7,33 @@
       <div class="field row mt-3">
         <div class='col'>
           <%= f.label :First_Name %><br />
-          <%= f.text_field :First_Name, autofocus: true, autocomplete: "First_Name",class: 'form-control' %>
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "First_Name",class: 'form-control' %>
         </div>
         <div class='col'>
           <%= f.label :Last_Name %><br />
-          <%= f.text_field :Last_Name, autofocus: true, autocomplete: "Last_Name",class: 'form-control' %>
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "Last_Name",class: 'form-control' %>
         </div> 
       </div>
 
       <div class="field row mt-2">
         <div class='col'>
-          <%= f.label :Country %><br />
-          <%= f.text_field :Country, autofocus: true, autocomplete: "Country",class: 'form-control' %>
+          <%= f.label :country %><br />
+          <%= f.text_field :country, autofocus: true, autocomplete: "Country",class: 'form-control' %>
         </div>
         <div class='col'>
-          <%= f.label :City %><br />
-          <%= f.text_field :City, autofocus: true, autocomplete: "City",class: 'form-control' %>
+          <%= f.label :city %><br />
+          <%= f.text_field :city, autofocus: true, autocomplete: "City",class: 'form-control' %>
         </div> 
       </div>
 
       <div class='row mt-2'>
         <div class='field col'>
           <%= f.label :Phone_number %><br />
-          <%= f.number_field :Phone_number, autofocus: true, autocomplete: "Phone_number",class: 'form-control' %>
+          <%= f.number_field :phone_number, autofocus: true, autocomplete: "Phone_number",class: 'form-control' %>
         </div>
         <div class='field col'>
           <%= f.label :Address %><br />
-          <%= f.text_field :Address, autofocus: true, autocomplete: "Address",class: 'form-control' %>
+          <%= f.text_field :address, autofocus: true, autocomplete: "Address",class: 'form-control' %>
         </div>
       </div>
      
@@ -54,6 +54,11 @@
           <%= f.label :password_confirmation %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class: 'form-control'%>
         </div>
+      </div>
+
+      <div class="field mt-2">
+        <%= f.label :profile %>
+        <%= f.file_field :profile, class:'form-control' %>
       </div>
 
       <div class="actions mt-4 btn1">

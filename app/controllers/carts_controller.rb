@@ -1,7 +1,14 @@
 class CartsController < ApplicationController
-  before_action :set_cart
+  before_action :authenticate_user!
+  before_action :set_cart, except: :index
+
+  def index
+    @carts = Cart.order(:id)
+    authorize @carts
+  end
 
   def show
+    authorize @cart
   end
   
   def add
@@ -13,9 +20,6 @@ class CartsController < ApplicationController
       @cart.items.create(product_id: @product.id, quantity: 1)
     end
     redirect_to cart_path(@cart)
-  end
-  
-  def check
   end
   
   def destroy

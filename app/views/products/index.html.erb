@@ -1,9 +1,9 @@
-<div class='container-fluid bg-light'>
+<div class='container-fluid productindex bg-light'>
   <div class='row text-center m-auto'>
     <% @products.each do |product|%>
       <div class="card" style="width: 15rem;">
         <% if product.files.attached? %>
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <div class=”carousel-inner”>
                 <%product.files.each_with_index do |file,i|%>
@@ -16,8 +16,8 @@
           </div>
         <% end %>
         <div class="card-body">
-          <h5 class="card-title"><%= product.Name %></h5>
-          <p class="card-text">RS.<%= product.Price %></p>
+          <h5 class="card-title"><%= product.name %></h5>
+          <p class="card-text">RS.<%= product.price %></p>
           <%= link_to 'Details', product_path(product), class:'btn btn-pro'%>
         </div>
       </div>
