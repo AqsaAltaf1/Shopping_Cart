@@ -1,0 +1,54 @@
+<div class='container signup mb-5'>
+  <h3 class='text-center sign p-2'>Edit User</h3>
+  <%= form_with model: @user do |f| %>
+    <div class='form-body'>
+      <div class="field row mt-3">
+        <div class='col'>
+          <%= f.label :First_Name %><br />
+          <%= f.text_field :First_Name, autofocus: true, autocomplete: "First_Name", readonly: true,class: 'form-control' %>
+        </div>
+        <div class='col'>
+          <%= f.label :Last_Name %><br />
+          <%= f.text_field :Last_Name, autofocus: true, autocomplete: "Last_Name", readonly: true,class: 'form-control' %>
+        </div> 
+      </div>
+
+      <div class="field row mt-2">
+        <div class='col'>
+          <%= f.label :Country %><br />
+          <%= f.text_field :Country, autofocus: true, autocomplete: "Country", readonly: true ,class: 'form-control' %>
+        </div>
+        <div class='col'>
+          <%= f.label :City %><br />
+          <%= f.text_field :City, autofocus: true, autocomplete: "City", readonly: true ,class: 'form-control' %>
+        </div> 
+      </div>
+      
+      <div class='field row mt-2'>
+        <div class='col'>
+          <%= f.label :Phone_number %><br />
+          <%= f.number_field :Phone_number, autofocus: true, autocomplete: "Phone_number", readonly: true ,class: 'form-control' %>
+        </div>
+        <div class='col'>
+          <%= f.label :email %><br />
+          <%= f.text_field :email, autofocus: true, autocomplete: "Phone_number", readonly: true,class: 'form-control' %>
+        </div>
+      </div>  
+
+      <div class='field row mt-2'>
+        <div class='col'>
+          <%= f.label :role %><br />
+          <%= f.text_field :role,class: 'form-control' %>
+        </div>
+        <div class='col'>
+        <%= f.label :status %><br />
+        <%= f.text_field :status ,class: 'form-control'%>
+        </div>
+      </div> 
+      
+      <div class="actions mt-4 btn1">
+        <%= f.submit "Update",class: 'form-control btn1-body' %>
+      </div>
+    </div>
+  <% end %>
+</div>
