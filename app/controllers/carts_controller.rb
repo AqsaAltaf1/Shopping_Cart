@@ -4,9 +4,11 @@ class CartsController < ApplicationController
 
   def index
     @carts = Cart.order(:id)
+    authorize @carts
   end
 
   def show
+    authorize @cart
   end
   
   def add

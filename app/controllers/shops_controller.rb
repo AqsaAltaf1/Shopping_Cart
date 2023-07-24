@@ -3,14 +3,17 @@ class ShopsController < ApplicationController
   
   def index
     @shops = Shop.order(:id)
+    authorize @shops
   end
 
   def show
+    authorize @shop
     @products = @shop.products
   end
 
   def new
     @shop = Shop.new
+    authorize @shop
   end
 
   def create
@@ -23,6 +26,7 @@ class ShopsController < ApplicationController
   end
 
   def edit
+    authorize @shop
   end
 
   def update
