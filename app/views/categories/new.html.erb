@@ -2,3 +2,9 @@
   <h3 class='text-center sign p-2'>Create category</h3>
   <%= render 'form' %>
 </div>
+
+<%= render "remote_modal", title: "New item" do %>
+
+  <%= render "form" %>
+
+<% end %>

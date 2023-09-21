@@ -24,7 +24,7 @@
         <% end %>
       </tbody> 
     </table>
-    <%= link_to 'Add Categpries',new_category_path, class:'btn btn-pro' %>
+    <%= link_to 'Add Categpries',new_category_path, class:'btn btn-pro',data: { turbo_frame: "remote_modal" } %>
   </div> 
 </div>
 <script>
