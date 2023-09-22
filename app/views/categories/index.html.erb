@@ -16,7 +16,7 @@
           <tr>
             <th scope="row"><%= cat.id %></th>
             <td><%= cat.name %></td>
-            <td><%= link_to 'edit', edit_category_path(cat)%> <%= link_to 'delete', category_path(cat), data: {
+            <td><%= link_to 'edit', edit_category_path(cat),data: { turbo_frame: "remote_modal" }%> <%= link_to 'delete', category_path(cat), data: {
               turbo_method: :delete,
               turbo_confirm: "Are you sure?"
             }%></td>
