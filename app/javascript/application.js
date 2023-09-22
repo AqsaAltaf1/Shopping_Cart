@@ -2,9 +2,10 @@
 //= require jquery.rateyo
 import "@hotwired/turbo-rails";
 import "controllers";
-import "popper";
+import "@popperjs/core";
 import "bootstrap";
 import "jquery";
 import "DataTable";
+
 
 

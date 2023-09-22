@@ -80,3 +80,4 @@ gem 'sass-rails'
 gem "letter_opener", group: :development
 gem 'rateyo-rails'
 gem "pundit"
+gem 'dotenv-rails'

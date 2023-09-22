@@ -1,7 +1,7 @@
 <div class='container-fluid productindex bg-light'>
   <div class='row text-center m-auto'>
     <% @products.each do |product|%>
-      <div class="card" style="width: 15rem;">
+      <div class="card" style="width: 14rem;">
         <% if product.files.attached? %>
           <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">

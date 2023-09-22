@@ -16,10 +16,13 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.create(category_params)
-    if @category.save
-      redirect_to categories_path
-    else
-      render :create
+    respond_to do |format|
+      if @category.save
+        format.html { redirect_to categories_path, notice: "Item was successfully created." }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.turbo_stream { render :form_update, status: :unprocessable_entity }
+      end
     end
   end
 
